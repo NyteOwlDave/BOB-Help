@@ -7,8 +7,15 @@
 WORKSPACE=~/Projects/Trace
 . ${WORKSPACE}/_/tools.inc
 
-# Create files
-FixSec() {
+# Create file list
+LocateImages()
+{
+    ls *.png -1 > png.list
+}
+
+# Modify file permissions
+FixSec() 
+{
     printf "Modifying files...\n";
     ls *.png > png.list
     while read a 
@@ -19,7 +26,8 @@ FixSec() {
 }
 
 main() {
-    FixSec "$@"
+    LocateImages
+    FixSec
 }
 
 main "$@"
