@@ -1,0 +1,10 @@
+
+  // Turbulence definition
+  turbulence {
+    scale           x y z         // Scale turbulence space (discrete)
+    translate       x y z         // Translate tubluence space
+    scale           f             // Scale turbulence space (uniform)
+    amplitude       f             // Amplification coefficient
+    terms           i             // Number of terms
+  }
+

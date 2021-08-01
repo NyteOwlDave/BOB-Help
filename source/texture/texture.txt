@@ -1,0 +1,18 @@
+
+  // Texture definition
+  texture {
+    pattern         checker       // Checkerboard pattern
+    pattern         noise         // Noise pattern
+    pattern         spherical     // Spherical pattern
+    translate       x y z         // Translate texture space
+    scale           x y z         // Scale texture space (discrete)
+    blend           f             // Blend coefficient
+    fuzz            f             // Fuzziness coefficient
+    radius          f             // Radius (1 or 2)
+    scale           f             // Scale texture space (uniform)
+    terms           i             // Number of terms
+    turbulence      {}            // Turbulence block
+    wave            {}            // Noise block
+    surface         {}            // Surface block (0, 1 or 2)
+  }
+

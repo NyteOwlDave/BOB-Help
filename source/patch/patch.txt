@@ -1,0 +1,8 @@
+
+  // Patch definition
+  patch {
+    normal          x y z         // Vertex surface normal vector (x3)
+    vertex          x y z         // Vertex location (x3)
+    clip            {}            // One or more clip blocks
+  }
+

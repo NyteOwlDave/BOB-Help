@@ -1,0 +1,98 @@
+#!/bin/bash
+
+# Convert one or all MD files to HTML format
+# See: cv.md for details
+
+# Requires: pandoc to be installed
+# See: cv-install script
+
+IsFile() {
+	if [[ -f "$1" ]]
+	then
+		return 1
+	else
+		return 0
+	fi
+}
+
+IsFolder() {
+	if [[ -d "$1" ]]
+	then
+		return 1
+	else
+		return 0
+	fi
+}
+
+ListFiles() {
+ls -A -CF -1 "$@" | egrep -v '/$' | cut -f 1 -d '*'
+}
+
+ListFolders() {
+#ls -AlF | grep '^d' | cut -b 47- | grep -v '^\.' | cut -d '/' -f 1
+ls -AlF | grep '^d' | cut -b 42- | grep -v '^\.' | cut -d '/' -f 1
+}
+
+BaseName() {
+	# ${param/%pat/string}
+	echo ${1/%.*/}
+}
+
+Convert() {
+	pandoc -s -V css=help.css $1.md -o $1.html
+}
+
+ConvertAll() {
+	pwd
+	ListFiles *.md > yyz.tmp
+	while read a
+	do
+		IsFile $a
+		if [ $? -ne 0 ]
+		then
+			echo $a
+			Convert $(BaseName $a)
+		fi
+	done < yyz.tmp
+	ListFolders > yyz.tmp
+	while read a
+	do
+		cd $a
+		ConvertAll
+		cd ..
+	done < yyz.tmp
+	rm yyz.tmp
+}
+
+Usage() {
+echo
+echo "To convert a single file:"
+echo "    cv <filename>"
+echo
+echo "To convert all files:"
+echo "    cv"
+echo
+echo "To show help:"
+echo "    cv --help"
+echo
+}
+
+Exec() {
+	clear
+	if [[ $1 == "" ]]	
+	then
+		ConvertAll
+	else
+		if [[ $1 == "--help" ]]
+		then
+			Usage
+        else
+            echo $1
+			Convert $1
+		fi
+	fi	
+}
+
+Exec "$@"
+
+

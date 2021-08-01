@@ -1,0 +1,11 @@
+
+  // Ring definition
+  ring {
+    center          x y z         // Location of the ring's center point
+    normal          x y z         // Ring surface normal vector
+    max_radius      f             // Outer radius
+    min_radius      f             // Inner radius
+    radius          f             // Outer radius
+    clip            {}            // One or more clip blocks
+  }
+

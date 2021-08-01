@@ -1,0 +1,20 @@
+
+  // Surface definition
+  surface {
+    ambient         r g b         // Ambient color
+    diffuse         r g b         // Diffuse color
+    specular        r g b         // Specular color
+    transparent     r g b         // Transparent color
+    fuzz            f             // Fuzziness
+    ior             f             // Index of refraction
+    shine           f             // Shine coefficient
+    shine           f r g b       // Shine coefficient and color
+    ambient         {}            // Ambient texture map
+    diffuse         {}            // Diffuse texture map
+    specular        {}            // Specular texture map
+    transparent     {}            // Transparent texture map
+    bump            {}            // Bump map
+    texture         {}            // Procedural texture
+    no_antialias                  // Disable antialiasing
+  }
+

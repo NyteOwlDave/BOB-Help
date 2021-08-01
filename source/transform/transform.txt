@@ -1,0 +1,9 @@
+
+  // Transform definition
+  transform {
+    rotate          x y z         // Rotation about all three axes
+    scale           x y z         // Scaling in all three axes (discrete)
+    translate       x y z         // Translation along all three axes
+    scale           f             // Scalimg in all three axes (uniform)
+  }
+
