@@ -1,5 +1,0 @@
-#!/bin/bash
-# https://opensource.com/article/18/9/intro-pandoc
-
-sudo apt-get install pandoc pandoc-citeproc texlive
-
